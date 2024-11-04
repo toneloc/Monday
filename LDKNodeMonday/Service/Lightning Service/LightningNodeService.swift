@@ -85,6 +85,10 @@ class LightningNodeService {
         let ldkNode = try! nodeBuilder.build()  // Handle error instead of "!"
         self.ldkNode = ldkNode
     }
+    
+    func checkStability(stableChannelId: String, expectedDollarAmount: Double) async throws {
+        ldkNode.checkStability(stableChannelId: stableChannelId, expectedDollarAmount: expectedDollarAmount)
+    }
 
     func start() async throws {
         try ldkNode.start()
