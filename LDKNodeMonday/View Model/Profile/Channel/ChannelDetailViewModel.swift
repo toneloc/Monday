@@ -20,7 +20,7 @@ class ChannelDetailViewModel: ObservableObject {
     func close() {
         Task {
             do {
-                try await LightningNodeService.shared.checkStability(stableChannelId: "72104b95608f433751d6070ecb9c9ade30746d7733d4fa901e9068d6f2384f7d", expectedDollarAmount: 199)
+                try await LightningNodeService.shared.checkStability(stableChannelId: "72104b95608f433751d6070ecb9c9ade30746d7733d4fa901e9068d6f2384f7d", expectedDollarAmount: 155)
             } catch {
                 print("Failed to check stability: \(error)")
             }

@@ -238,10 +238,24 @@ extension LightningNodeService {
         Task {
             while true {
                 let event = await ldkNode.nextEventAsync()
-                NotificationCenter.default.post(
-                    name: .ldkEventReceived,
-                    object: event.description
-                )
+                
+                switch event {
+                case .channelPending(channelId: let channelId, userChannelId: _, formerTemporaryChannelId: _, counterpartyNodeId: _, fundingTxo: _):
+                    NotificationCenter.default.post(
+                        name: .ldkPendingChannelEventReceived,
+                        object: event.description
+                    )
+                    let channelInfo = ChannelInfo(channelID: channelId, amount: 100.0)
+                    print("saving info")
+                    try! keyService.saveChannelInfo(channelInfo)
+                    // go to bitcoin view
+                default:
+                    print("do nothing")
+                }
+//                NotificationCenter.default.post(
+//                    name: .ldkEventReceived,
+//                    object: event.description
+//                )
                 ldkNode.eventHandled()
             }
         }

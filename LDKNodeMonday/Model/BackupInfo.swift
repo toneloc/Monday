@@ -19,6 +19,24 @@ struct BackupInfo: Codable, Equatable {
     }
 }
 
+struct ChannelInfo: Codable, Equatable {
+    var channelID: String
+    var amount: Double
+
+    init(
+        channelID: String,
+        amount: Double
+    ) {
+        self.channelID = channelID
+        self.amount = amount
+    }
+
+    static func == (lhs: ChannelInfo, rhs: ChannelInfo) -> Bool {
+        return lhs.channelID == rhs.channelID && lhs.amount == rhs.amount
+    }
+}
+
 #if DEBUG
     let mockBackupInfo = BackupInfo(mnemonic: "")
+    let mockChannelInfo = ChannelInfo(channelID: "", amount: 0)
 #endif

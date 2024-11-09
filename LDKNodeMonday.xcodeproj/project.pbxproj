@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13C240CC2CD6C7DC00696AC0 /* LDKNode in Frameworks */ = {isa = PBXBuildFile; productRef = 13C240CB2CD6C7DC00696AC0 /* LDKNode */; };
+		13C240CE2CD6C80300696AC0 /* LDKNode in Frameworks */ = {isa = PBXBuildFile; productRef = 13C240CD2CD6C80300696AC0 /* LDKNode */; };
+		13C240D12CD6C90400696AC0 /* LDKNode in Frameworks */ = {isa = PBXBuildFile; productRef = 13C240D02CD6C90400696AC0 /* LDKNode */; };
+		13C240D32CD9292900696AC0 /* LDKNode in Frameworks */ = {isa = PBXBuildFile; productRef = 13C240D22CD9292900696AC0 /* LDKNode */; };
 		AE00550E2B479EF000100797 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE00550D2B479EF000100797 /* OnboardingView.swift */; };
 		AE0055102B479F1100100797 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE00550F2B479F1100100797 /* OnboardingViewModel.swift */; };
 		AE0055122B47A65700100797 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0055112B47A65700100797 /* Color+Extensions.swift */; };
@@ -86,7 +90,6 @@
 		AEE8FDDD29F855E700406DD9 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8FDDC29F855E700406DD9 /* String+Extensions.swift */; };
 		AEE8FDDF29F8579600406DD9 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8FDDE29F8579600406DD9 /* Date+Extensions.swift */; };
 		AEF66F522BA4B11A00FA15F9 /* PaymentKind+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF66F512BA4B11A00FA15F9 /* PaymentKind+Extensions.swift */; };
-		AEFA825E2CC15C7C0095B0BA /* LDKNode in Frameworks */ = {isa = PBXBuildFile; productRef = AEFA825D2CC15C7C0095B0BA /* LDKNode */; };
 		AEFAF2922A433F6F001128DF /* LightningPaymentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFAF2912A433F6F001128DF /* LightningPaymentStatus.swift */; };
 /* End PBXBuildFile section */
 
@@ -173,14 +176,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEFA825E2CC15C7C0095B0BA /* LDKNode in Frameworks */,
+				13C240CE2CD6C80300696AC0 /* LDKNode in Frameworks */,
+				13C240CC2CD6C7DC00696AC0 /* LDKNode in Frameworks */,
 				AE060C382C051B59006724F1 /* LDKNode in Frameworks */,
 				AE1D9BEC2B2A1FFD00620748 /* BitcoinUI in Frameworks */,
 				AEE5B7652A09B1FC001E5E59 /* CodeScanner in Frameworks */,
 				AE51BEFD2B37A5DC00BAE452 /* SimpleToast in Frameworks */,
+				13C240D12CD6C90400696AC0 /* LDKNode in Frameworks */,
 				AE7C4A082B406D590061189D /* SimpleToast in Frameworks */,
 				AE80C2052C4AB5E4006E7193 /* LDKNode in Frameworks */,
 				AE01C5B02AB3BEED00F28C7E /* KeychainAccess in Frameworks */,
+				13C240D32CD9292900696AC0 /* LDKNode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +554,10 @@
 				AE7C4A072B406D590061189D /* SimpleToast */,
 				AE060C372C051B59006724F1 /* LDKNode */,
 				AE80C2042C4AB5E4006E7193 /* LDKNode */,
-				AEFA825D2CC15C7C0095B0BA /* LDKNode */,
+				13C240CB2CD6C7DC00696AC0 /* LDKNode */,
+				13C240CD2CD6C80300696AC0 /* LDKNode */,
+				13C240D02CD6C90400696AC0 /* LDKNode */,
+				13C240D22CD9292900696AC0 /* LDKNode */,
 			);
 			productName = LDKNodeMonday;
 			productReference = AE17E8D629A402E30058C9C9 /* LDKNodeMonday.app */;
@@ -583,7 +592,7 @@
 				AE01C5AE2AB3BEED00F28C7E /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				AE1D9BEA2B2A1FFD00620748 /* XCRemoteSwiftPackageReference "BitcoinUI" */,
 				AE7C4A062B406D590061189D /* XCRemoteSwiftPackageReference "SimpleToast" */,
-				AEFA825C2CC15C7C0095B0BA /* XCRemoteSwiftPackageReference "ldk-node" */,
+				13C240CF2CD6C90400696AC0 /* XCLocalSwiftPackageReference "../ldk-node/bindings/swift" */,
 			);
 			productRefGroup = AE17E8D729A402E30058C9C9 /* Products */;
 			projectDirPath = "";
@@ -814,7 +823,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LDKNodeMonday/Preview Content\"";
-				DEVELOPMENT_TEAM = 9G6M658RKZ;
+				DEVELOPMENT_TEAM = VJF3VBKXV9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LDKNodeMonday/Info.plist;
@@ -846,7 +855,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LDKNodeMonday/Preview Content\"";
-				DEVELOPMENT_TEAM = 9G6M658RKZ;
+				DEVELOPMENT_TEAM = VJF3VBKXV9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LDKNodeMonday/Info.plist;
@@ -893,6 +902,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		13C240CF2CD6C90400696AC0 /* XCLocalSwiftPackageReference "../ldk-node/bindings/swift" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../ldk-node/bindings/swift";
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		AE01C5AE2AB3BEED00F28C7E /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -926,17 +942,25 @@
 				version = 2.0.0;
 			};
 		};
-		AEFA825C2CC15C7C0095B0BA /* XCRemoteSwiftPackageReference "ldk-node" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lightningdevkit/ldk-node.git";
-			requirement = {
-				kind = exactVersion;
-				version = 0.4.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		13C240CB2CD6C7DC00696AC0 /* LDKNode */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LDKNode;
+		};
+		13C240CD2CD6C80300696AC0 /* LDKNode */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LDKNode;
+		};
+		13C240D02CD6C90400696AC0 /* LDKNode */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LDKNode;
+		};
+		13C240D22CD9292900696AC0 /* LDKNode */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LDKNode;
+		};
 		AE01C5AF2AB3BEED00F28C7E /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AE01C5AE2AB3BEED00F28C7E /* XCRemoteSwiftPackageReference "KeychainAccess" */;
@@ -968,11 +992,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AEE5B7632A09B1FC001E5E59 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
-		};
-		AEFA825D2CC15C7C0095B0BA /* LDKNode */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AEFA825C2CC15C7C0095B0BA /* XCRemoteSwiftPackageReference "ldk-node" */;
-			productName = LDKNode;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

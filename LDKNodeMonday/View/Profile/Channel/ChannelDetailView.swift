@@ -70,7 +70,7 @@ struct ChannelDetailView: View {
                 Button {
                     showingConfirmationAlert = true
                 } label: {
-                    Text("Close Channel")
+                    Text("Check Stability")
                         .bold()
                         .foregroundColor(Color(uiColor: UIColor.systemBackground))
                         .frame(maxWidth: .infinity)
@@ -97,7 +97,7 @@ struct ChannelDetailView: View {
                 )
             }
             .alert(
-                "Are you sure you want to close this channel?",
+                "Are you sure you want to check the stability for this channel?",
                 isPresented: $showingConfirmationAlert
             ) {
                 Button("Yes", role: .destructive) {

@@ -52,6 +52,18 @@ class BitcoinViewModel: ObservableObject {
             self.isTotalBalanceFinished = true
         }
     }
+    
+    func checkStability() async {
+        print("got here")
+        do {
+            // calll the keyservice.get channel info
+            
+            try await LightningNodeService.shared.checkStability(stableChannelId: "72104b95608f433751d6070ecb9c9ade30746d7733d4fa901e9068d6f2384f7d", expectedDollarAmount: 155)
+        }
+        catch {
+            // handle error
+        }
+    }
 
     func getSpendableOnchainBalanceSats() async {
         let balance = await LightningNodeService.shared.spendableOnchainBalanceSats()

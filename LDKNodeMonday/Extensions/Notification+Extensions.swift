@@ -8,6 +8,7 @@
 import Foundation
 
 extension Notification.Name {
+    static let ldkPendingChannelEventReceived = Notification.Name("ldkPendingChannelEventReceived")
     static let ldkEventReceived = Notification.Name("ldkEventReceived")
     static let ldkErrorReceived = Notification.Name("ldkErrorReceived")
 }

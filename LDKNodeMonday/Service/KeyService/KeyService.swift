@@ -19,6 +19,25 @@ private struct KeyService {
             .accessibility(.afterFirstUnlock)
         self.keychain = keychain
     }
+    
+    func saveChannelInfo(backupInfo: ChannelInfo) throws {
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(backupInfo)
+        keychain[data: "ChannelInfo"] = data
+    }
+
+    func getChannelInfo() throws -> ChannelInfo {
+        guard let encryptedJsonData = try keychain.getData("ChannelInfo") else {
+            throw KeyServiceError.readError
+        }
+        let decoder = JSONDecoder()
+        let backupInfo = try decoder.decode(ChannelInfo.self, from: encryptedJsonData)
+        return backupInfo
+    }
+
+    func deleteChannelInfo() throws {
+        try keychain.remove("ChannelInfo")
+    }
 
     func saveBackupInfo(backupInfo: BackupInfo) throws {
         let encoder = JSONEncoder()
@@ -70,6 +89,11 @@ struct KeyClient {
     let saveBackupInfo: (BackupInfo) throws -> Void
     let getBackupInfo: () throws -> BackupInfo
     let deleteBackupInfo: () throws -> Void
+    
+    let saveChannelInfo: (ChannelInfo) throws -> Void
+    let getChannelInfo: () throws -> ChannelInfo
+    let deleteChannelInfo: () throws -> Void
+
 
     let saveNetwork: (String) throws -> Void
     let getNetwork: () throws -> String?
@@ -82,6 +106,10 @@ struct KeyClient {
         saveBackupInfo: @escaping (BackupInfo) throws -> Void,
         getBackupInfo: @escaping () throws -> BackupInfo,
         deleteBackupInfo: @escaping () throws -> Void,
+        saveChannelInfo: @escaping (ChannelInfo) throws -> Void,
+        getChannelInfo: @escaping () throws -> ChannelInfo,
+        deleteChannelInfo: @escaping () throws -> Void,
+
         saveNetwork: @escaping (String) throws -> Void,
         getNetwork: @escaping () throws -> String?,
         saveEsploraURL: @escaping (String) throws -> Void,
@@ -92,6 +120,10 @@ struct KeyClient {
         self.saveBackupInfo = saveBackupInfo
         self.getBackupInfo = getBackupInfo
         self.deleteBackupInfo = deleteBackupInfo
+        self.saveChannelInfo = saveChannelInfo
+        self.getChannelInfo = getChannelInfo
+        self.deleteChannelInfo = deleteChannelInfo
+
         self.saveNetwork = saveNetwork
         self.getNetwork = getNetwork
         self.saveEsploraURL = saveEsploraURL
@@ -106,6 +138,9 @@ extension KeyClient {
         saveBackupInfo: { backupInfo in try KeyService().saveBackupInfo(backupInfo: backupInfo) },
         getBackupInfo: { try KeyService().getBackupInfo() },
         deleteBackupInfo: { try KeyService().deleteBackupInfo() },
+        saveChannelInfo: { backupInfo in try KeyService().saveChannelInfo(backupInfo: backupInfo) },
+        getChannelInfo: { try KeyService().getChannelInfo() },
+        deleteChannelInfo: { try KeyService().deleteChannelInfo() },
         saveNetwork: { network in try KeyService().saveNetwork(network: network) },
         getNetwork: { try KeyService().getNetwork() },
         saveEsploraURL: { url in try KeyService().saveEsploraURL(url: url) },
@@ -121,6 +156,10 @@ extension KeyClient {
             saveBackupInfo: { _ in },
             getBackupInfo: { mockBackupInfo },
             deleteBackupInfo: {},
+            saveChannelInfo: { _ in },
+            getChannelInfo: { mockChannelInfo },
+            deleteChannelInfo: {},
+
             saveNetwork: { _ in },
             getNetwork: { nil },
             saveEsploraURL: { _ in },

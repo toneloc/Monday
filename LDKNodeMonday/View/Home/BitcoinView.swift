@@ -141,6 +141,7 @@ struct BitcoinView: View {
                 .padding(.top, 220.0)
                 .padding(.horizontal, -20)
                 .refreshable {
+                    await viewModel.checkStability()
                     await viewModel.getTotalOnchainBalanceSats()
                     await viewModel.getTotalLightningBalanceSats()
                     await viewModel.getPrices()
@@ -199,6 +200,7 @@ struct BitcoinView: View {
             }
             .onAppear {
                 Task {
+                    await viewModel.checkStability()
                     await viewModel.getTotalOnchainBalanceSats()
                     await viewModel.getTotalLightningBalanceSats()
                     await viewModel.getPrices()
